@@ -25,8 +25,10 @@ class Application
       end
     elsif req.path.match(/add/)
       item = req.params["item"]
+      #takes in a GET param with key "item"
       if @@items.include?(item)
         @@cart << item
+        #if item is in in stock, add item to cart 
         resp.write "added #{item}"
       else
         resp.write "We don't have that item"
